@@ -153,7 +153,7 @@ public class MinIOFileStorageService implements FileStorageService {
         int rc = 0;
         while (true) {
             try {
-                if (!((rc = inputStream.read(buff, 0, 100)) > 0)) break;
+                if (inputStream != null && !((rc = inputStream.read(buff, 0, 100)) > 0)) break;
             } catch (IOException e) {
                 e.printStackTrace();
             }
