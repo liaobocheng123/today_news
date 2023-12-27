@@ -12,3 +12,6 @@ spring:
         file-extension: yml
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+tess4j:
+  data-path: D:\ProgrammingStudy
+  language: chi_sim

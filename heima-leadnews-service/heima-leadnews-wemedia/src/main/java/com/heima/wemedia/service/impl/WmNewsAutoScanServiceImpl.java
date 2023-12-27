@@ -1,16 +1,21 @@
 package com.heima.wemedia.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.heima.common.baiduyun.GreenImageScan;
 import com.heima.common.baiduyun.GreenTextScan;
+import com.heima.common.tess4j.Tess4jClient;
 import com.heima.file.service.FileStorageService;
 import com.heima.model.article.dtos.ArticleDto;
 import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.wemedia.pojos.WmChannel;
 import com.heima.model.wemedia.pojos.WmNews;
+import com.heima.model.wemedia.pojos.WmSensitive;
 import com.heima.model.wemedia.pojos.WmUser;
+import com.heima.utils.common.SensitiveWordUtil;
 import com.heima.wemedia.mapper.WmChannelMapper;
 import com.heima.wemedia.mapper.WmNewsMapper;
+import com.heima.wemedia.mapper.WmSensitiveMapper;
 import com.heima.wemedia.mapper.WmUserMapper;
 import com.heima.wemedia.service.WmNewsAutoScanService;
 import com.lbc.apis.article.IArticleClient;
@@ -24,6 +29,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -47,7 +55,12 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
         }
         //从内容中提取文本内容和图片
         Map<String,Object> textAndImages = handleTextAndImages(wmNews);
-        //         2、审核文本内容，百度云接口
+
+        //自管理的敏感词过滤
+        boolean isSensitive = handleSensitiveScan((String) textAndImages.get("content"),wmNews);
+        if(!isSensitive) return;
+
+        //2、审核文本内容，百度云接口
         boolean textCheck = handleScanText(wmNews, textAndImages);
         if (!textCheck) return;
 
@@ -67,6 +80,21 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
 
     }
     @Autowired
+    private WmSensitiveMapper wmSensitiveMapper;
+    private boolean handleSensitiveScan(String content, WmNews wmNews) {
+        boolean flag = true;
+        List<WmSensitive> wmSensitives = wmSensitiveMapper.selectList(Wrappers.<WmSensitive>lambdaQuery().select(WmSensitive::getSensitives));
+        List<String> sensitiveList = wmSensitives.stream().map(WmSensitive::getSensitives).collect(Collectors.toList());
+        SensitiveWordUtil.initMap(sensitiveList);
+        Map<String, Integer> map = SensitiveWordUtil.matchWords(content);
+        if (!map.isEmpty()){
+            updateWmnews(wmNews,(short) 2,"当前文章中存在敏感词" + map);
+            flag = false;
+        }
+        return flag;
+    }
+
+    @Autowired
     private GreenTextScan greenTextScan;
     @Autowired
     private GreenImageScan greenImageScan;
@@ -78,6 +106,8 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     private WmChannelMapper wmChannelMapper;
     @Autowired
     private IArticleClient articleClient;
+    @Autowired
+    private Tess4jClient tess4jClient;
 
     private Map<String, Object> handleTextAndImages(WmNews wmNews) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -107,9 +137,21 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
         List<String> imgUrlList = images.stream().distinct().collect(Collectors.toList());
         boolean flag = true;
         List<byte[]> imgList = new ArrayList<>();
-        for (String img : imgUrlList) {
-            byte[] bytes = fileStorageService.downLoadFile(img);
-            imgList.add(bytes);
+        try {
+            for (String img : imgUrlList) {
+                byte[] bytes = fileStorageService.downLoadFile(img);
+                //图片识别(ORC)
+                ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+                BufferedImage bufferedImage = ImageIO.read(in);
+                String result = tess4jClient.doOCR(bufferedImage);
+                boolean isSensitive = handleSensitiveScan(result, wmNews);
+                if (!isSensitive){
+                    return isSensitive;
+                }
+                imgList.add(bytes);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
         for (byte[] bytes : imgList) {
             Map<String, String> map = greenImageScan.greenImageScan(bytes);
