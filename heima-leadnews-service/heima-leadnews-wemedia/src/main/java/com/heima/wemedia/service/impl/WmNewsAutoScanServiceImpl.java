@@ -29,6 +29,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -104,7 +105,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     private FileStorageService fileStorageService;
     @Autowired
     private WmChannelMapper wmChannelMapper;
-    @Autowired
+    @Resource
     private IArticleClient articleClient;
     @Autowired
     private Tess4jClient tess4jClient;

@@ -10,8 +10,6 @@ spring:
       config:
         server-addr: 192.168.200.130:8848
         file-extension: yml
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
 tess4j:
   data-path: D:\ProgrammingStudy
   language: chi_sim
