@@ -14,14 +14,15 @@ public interface WmNewsService extends IService<WmNews> {
      * @param dto
      * @return
      */
-    public ResponseResult findList(WmNewsPageReqDto dto);
+    ResponseResult findList(WmNewsPageReqDto dto);
 
     /**
      * 发布修改文章或保存为草稿
      * @param dto
      * @return
      */
-    public ResponseResult submitNews(WmNewsDto dto) throws JSONException;
+    ResponseResult submitNews(WmNewsDto dto) throws JSONException;
 
+    ResponseResult downOrUp(WmNewsDto dto);
 
 }

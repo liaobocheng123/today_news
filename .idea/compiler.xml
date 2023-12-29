@@ -26,6 +26,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="heima-leadnews-apis" target="1.8" />
+      <module name="leadnews-basic" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -49,6 +50,7 @@
       <module name="heima-leadnews-wemedia" options="-parameters" />
       <module name="heima-leadnews-wemedia-gateway" options="-parameters" />
       <module name="kafka-demo" options="-parameters" />
+      <module name="leadnews-basic" options="-parameters" />
       <module name="minio-demo" options="-parameters" />
       <module name="tess4j-demo" options="-parameters" />
     </option>

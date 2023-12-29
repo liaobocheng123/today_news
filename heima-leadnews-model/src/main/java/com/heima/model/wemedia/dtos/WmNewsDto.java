@@ -46,4 +46,9 @@ public class WmNewsDto {
      * 封面图片列表 多张图以逗号隔开
      */
     private List<String> images;
+
+    /**
+     * 是否上架，0是下架，1是下架
+     */
+    private Short enable;
 }
