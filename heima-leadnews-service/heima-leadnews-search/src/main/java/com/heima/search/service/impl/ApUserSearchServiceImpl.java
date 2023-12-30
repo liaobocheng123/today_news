@@ -1,7 +1,12 @@
 package com.heima.search.service.impl;
 
+import com.heima.model.common.dtos.ResponseResult;
+import com.heima.model.common.enums.AppHttpCodeEnum;
+import com.heima.model.search.dtos.HistorySearchDto;
+import com.heima.model.user.pojos.ApUser;
 import com.heima.search.pojos.ApUserSearch;
 import com.heima.search.service.ApUserSearchService;
+import com.heima.utils.thread.AppThreadLocalUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -54,5 +59,29 @@ public class ApUserSearchServiceImpl implements ApUserSearchService {
             ApUserSearch lastUserSearch = apUserSearchList.get(apUserSearchList.size() - 1);
             mongoTemplate.findAndReplace(Query.query(Criteria.where("id").is(lastUserSearch.getId())),apUserSearch);
         }
+    }
+
+    @Override
+    public ResponseResult findUserSearch() {
+        ApUser user = AppThreadLocalUtil.getUser();
+        if (user == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
+        }
+        List<ApUserSearch> apUserSearchList = mongoTemplate.find(Query.query(Criteria.where("userId").is(user.getId())).with(Sort.by(Sort.Direction.DESC, "createdTime")), ApUserSearch.class);
+        return ResponseResult.okResult(apUserSearchList);
+    }
+
+    @Override
+    public ResponseResult delUserSearch(HistorySearchDto dto) {
+        if (dto.getId() == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        ApUser user = AppThreadLocalUtil.getUser();
+        if (user == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
+        }
+
+        mongoTemplate.remove(Query.query(Criteria.where("userId").is(user.getId()).and("id").is(dto.getId())), ApUserSearch.class);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 }

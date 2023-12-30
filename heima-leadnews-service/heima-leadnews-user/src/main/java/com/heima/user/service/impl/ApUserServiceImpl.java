@@ -62,7 +62,5 @@ public class ApUserServiceImpl extends ServiceImpl<ApUserMapper, ApUser> impleme
             map.put("token",AppJwtUtil.getToken(0L));
             return ResponseResult.okResult(map);
         }
-
-
     }
 }
