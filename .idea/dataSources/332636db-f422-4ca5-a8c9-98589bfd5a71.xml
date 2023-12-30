@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="192.168.200.130">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.49">
+    <root id="1">
+      <ServerVersion>4.2.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="leadnews-comment"/>
+    <schema id="5" parent="1" name="leadnews-history">
+      <LocalIntrospectionTimestamp>2023-12-30.10:03:50</LocalIntrospectionTimestamp>
+    </schema>
+    <schema id="6" parent="1" name="local"/>
+    <table id="7" parent="5" name="ap_associate_words"/>
+    <table id="8" parent="5" name="ap_user_search"/>
+    <column id="9" parent="7" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="10" parent="7" name="associateWords">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="11" parent="7" name="_class">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="12" parent="7" name="createdTime">
+      <DasType>ISODate|91s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="13" parent="8" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="14" parent="8" name="_class">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="15" parent="8" name="createdTime">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="16" parent="8" name="keyword">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="17" parent="8" name="userId">
+      <DasType>Int32|4s</DasType>
+      <Position>3</Position>
+    </column>
+  </database-model>
+</dataSource>

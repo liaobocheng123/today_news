@@ -90,6 +90,7 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
             apArticleContent.setContent(dto.getContent());
             apArticleContentMapper.updateById(apArticleContent);
         }
+
         articleFreemarkerService.buildArticleToMinIO(apArticle,dto.getContent());
         return ResponseResult.okResult(apArticle.getId());
     }

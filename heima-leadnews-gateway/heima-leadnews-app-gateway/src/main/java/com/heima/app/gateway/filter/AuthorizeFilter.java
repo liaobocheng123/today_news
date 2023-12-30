@@ -3,7 +3,6 @@ package com.heima.app.gateway.filter;
 
 import com.heima.app.gateway.util.AppJwtUtil;
 import io.jsonwebtoken.Claims;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -18,7 +17,6 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 @Component
-@Slf4j
 public class AuthorizeFilter implements Ordered, GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

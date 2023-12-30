@@ -115,5 +115,4 @@ public class AppJwtUtil {
         System.out.println(claims.get("id"));
 
     }
-
 }

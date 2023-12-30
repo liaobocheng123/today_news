@@ -11,26 +11,35 @@
         <module name="heima-file-starter" />
         <module name="minio-demo" />
         <module name="heima-leadnews-wemedia-gateway" />
-        <module name="heima-leadnews-wemedia" />
         <module name="tess4j-demo" />
-        <module name="heima-leadnews-feign-api" />
-        <module name="heima-leadnews-user" />
-        <module name="heima-leadnews-article" />
+        <module name="heima-leadnews-wemedia" />
         <module name="kafka-demo" />
+        <module name="heima-leadnews-feign-api" />
+        <module name="heima-leadnews-article" />
+        <module name="heima-leadnews-user" />
+        <module name="es-init" />
         <module name="heima-leadnews-schedule" />
         <module name="heima-leadnews-utils" />
         <module name="heima-leadnews-app-gateway" />
+        <module name="heima-leadnews-search" />
         <module name="heima-leadnews-common" />
+        <module name="mongo-demo" />
         <module name="heima-leadnews-model" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="heima-leadnews-apis" target="1.8" />
       <module name="leadnews-basic" target="1.8" />
+      <module name="today-leadnews-gateway" target="1.8" />
+      <module name="today-leadnews-model" target="1.8" />
+      <module name="today-leadnews-service" target="1.8" />
+      <module name="today-leadnews-test" target="1.8" />
+      <module name="today-leadnews-utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="es-init" options="-parameters" />
       <module name="freemarker-demo" options="-parameters" />
       <module name="heima-file-starter" options="-parameters" />
       <module name="heima-leadnews" options="-parameters" />
@@ -43,6 +52,7 @@
       <module name="heima-leadnews-gateway" options="-parameters" />
       <module name="heima-leadnews-model" options="-parameters" />
       <module name="heima-leadnews-schedule" options="-parameters" />
+      <module name="heima-leadnews-search" options="-parameters" />
       <module name="heima-leadnews-service" options="-parameters" />
       <module name="heima-leadnews-test" options="-parameters" />
       <module name="heima-leadnews-user" options="-parameters" />
@@ -52,7 +62,13 @@
       <module name="kafka-demo" options="-parameters" />
       <module name="leadnews-basic" options="-parameters" />
       <module name="minio-demo" options="-parameters" />
+      <module name="mongo-demo" options="-parameters" />
       <module name="tess4j-demo" options="-parameters" />
+      <module name="today-leadnews-gateway" options="-parameters" />
+      <module name="today-leadnews-model" options="-parameters" />
+      <module name="today-leadnews-service" options="-parameters" />
+      <module name="today-leadnews-test" options="-parameters" />
+      <module name="today-leadnews-utils" options="-parameters" />
     </option>
   </component>
 </project>

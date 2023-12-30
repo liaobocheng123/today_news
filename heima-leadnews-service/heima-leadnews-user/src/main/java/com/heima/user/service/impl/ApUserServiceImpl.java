@@ -50,10 +50,11 @@ public class ApUserServiceImpl extends ServiceImpl<ApUserMapper, ApUser> impleme
             String token = AppJwtUtil.getToken(dbUser.getId().longValue());
             Map<String,Object> map = new HashMap<>();
             map.put("token",token);
+            dbUser.setId(dbUser.getId());
             dbUser.setSalt("");
             dbUser.setPassword("");
             map.put("user",dbUser);
-
+            log.info(map.toString());
             return ResponseResult.okResult(map);
         }else {
             //2.游客登录
