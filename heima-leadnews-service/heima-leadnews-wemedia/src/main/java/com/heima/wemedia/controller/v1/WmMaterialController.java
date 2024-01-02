@@ -4,7 +4,6 @@ import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.wemedia.dtos.WmMaterialDto;
 import com.heima.wemedia.service.WmMaterialService;
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

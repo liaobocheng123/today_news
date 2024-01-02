@@ -17,6 +17,7 @@
         <module>heima-leadnews-wemedia</module>
         <module>heima-leadnews-schedule</module>
         <module>heima-leadnews-search</module>
+        <module>today-leadnews-admin</module>
     </modules>
 
     <properties>
@@ -33,6 +34,11 @@
         <dependency>
             <groupId>com.heima</groupId>
             <artifactId>heima-leadnews-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.heima</groupId>
+            <artifactId>today-leadnews-admin</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.heima</groupId>

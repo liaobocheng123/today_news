@@ -2,18 +2,18 @@ package com.heima.wemedia.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.heima.wemedia.mapper.ChannelMapper;
 import com.heima.common.baiduyun.GreenImageScan;
 import com.heima.common.baiduyun.GreenTextScan;
 import com.heima.common.tess4j.Tess4jClient;
 import com.heima.file.service.FileStorageService;
+import com.heima.model.admin.pojos.AdChannel;
 import com.heima.model.article.dtos.ArticleDto;
 import com.heima.model.common.dtos.ResponseResult;
-import com.heima.model.wemedia.pojos.WmChannel;
 import com.heima.model.wemedia.pojos.WmNews;
 import com.heima.model.wemedia.pojos.WmSensitive;
 import com.heima.model.wemedia.pojos.WmUser;
 import com.heima.utils.common.SensitiveWordUtil;
-import com.heima.wemedia.mapper.WmChannelMapper;
 import com.heima.wemedia.mapper.WmNewsMapper;
 import com.heima.wemedia.mapper.WmSensitiveMapper;
 import com.heima.wemedia.mapper.WmUserMapper;
@@ -24,7 +24,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +41,8 @@ import java.util.stream.Collectors;
 public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     @Autowired
     private WmNewsMapper wmNewsMapper;
+    @Resource
+    private ChannelMapper channelMapper;
     @Override
     @Async //标明要异步调用
     public void autoScanWmNews(Integer id) throws JSONException {
@@ -103,8 +104,6 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     private WmUserMapper wmUserMapper;
     @Autowired
     private FileStorageService fileStorageService;
-    @Autowired
-    private WmChannelMapper wmChannelMapper;
     @Resource
     private IArticleClient articleClient;
     @Autowired
@@ -191,15 +190,15 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
         }
         return flag;
     }
-    private ResponseResult saveAppArticle(WmNews wmNews) {
+    public ResponseResult saveAppArticle(WmNews wmNews) {
         ArticleDto dto = new ArticleDto();
         BeanUtils.copyProperties(wmNews,dto);
         dto.setLayout(wmNews.getType());
-        WmChannel wmChannel = wmChannelMapper.selectById(dto.getChannelId());
+        AdChannel adChannel = channelMapper.selectById(dto.getChannelId());
 
 //            频道
-        if (wmChannel != null) {
-            dto.setChannelName(wmChannel.getName());
+        if (adChannel != null) {
+            dto.setChannelName(adChannel.getName());
         }
 
 //            作者

@@ -38,6 +38,8 @@ public class ResponseResult<T> implements Serializable {
         this.data = data;
     }
 
+
+
     public ResponseResult(Integer code, String msg) {
         this.code = code;
         this.errorMessage = msg;

@@ -1,6 +1,12 @@
 package com.heima.model.common.dtos;
 
+import com.heima.model.wemedia.pojos.WmSensitive;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.io.Serializable;
+import java.util.List;
+
 
 public class PageResponseResult extends ResponseResult implements Serializable {
     private Integer currentPage;
@@ -13,9 +19,18 @@ public class PageResponseResult extends ResponseResult implements Serializable {
         this.total = total;
     }
 
+    public PageResponseResult(Integer currentPage, Integer size, Integer total, Object data) {
+        this.currentPage = currentPage;
+        this.size = size;
+        this.total = total;
+        super.setData(data);
+    }
+
     public PageResponseResult() {
 
     }
+
+
 
 
     public int getCurrentPage() {
