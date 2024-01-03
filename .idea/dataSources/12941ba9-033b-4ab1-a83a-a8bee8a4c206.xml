@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@8.tcp.cpolar.top">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.49">
+    <root id="1">
+      <ServerVersion>7.0.4</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin">
+      <LocalIntrospectionTimestamp>2024-01-03.07:46:27</LocalIntrospectionTimestamp>
+    </schema>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="local"/>
+    <schema id="5" parent="1" name="ml-latest">
+      <LocalIntrospectionTimestamp>2024-01-03.07:46:35</LocalIntrospectionTimestamp>
+    </schema>
+    <table id="6" parent="5" name="genome-scores"/>
+    <table id="7" parent="5" name="genome-tags"/>
+    <table id="8" parent="5" name="links"/>
+    <table id="9" parent="5" name="movies"/>
+    <table id="10" parent="5" name="ratings"/>
+    <table id="11" parent="5" name="tags"/>
+    <column id="12" parent="6" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="13" parent="6" name="movieId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="14" parent="6" name="relevance">
+      <DasType>Double|8s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="15" parent="6" name="tagId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="16" parent="7" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="17" parent="7" name="tag">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="18" parent="7" name="tagId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="19" parent="8" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="20" parent="8" name="imdbId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="21" parent="8" name="movieId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="22" parent="8" name="tmdbId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="23" parent="9" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="24" parent="9" name="genres">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="25" parent="9" name="movieId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="26" parent="9" name="title">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="27" parent="10" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="28" parent="10" name="movieId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="29" parent="10" name="timestamp">
+      <DasType>Int64|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="30" parent="10" name="userId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="31" parent="10" name="rating">
+      <DasType>Double|8s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="32" parent="11" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="33" parent="11" name="movieId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="34" parent="11" name="tag">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="35" parent="11" name="timestamp">
+      <DasType>Int64|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="36" parent="11" name="userId">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+  </database-model>
+</dataSource>

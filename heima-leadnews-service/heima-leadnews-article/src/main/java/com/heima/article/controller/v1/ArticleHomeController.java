@@ -21,7 +21,8 @@ public class ArticleHomeController {
     //加载首页
     @PostMapping("/load")
     public ResponseResult load(@RequestBody ArticleHomeDto dto){
-        return apArticleService.load(dto, ArticleConstants.LOADTYPE_LOAD_MORE);
+//        return apArticleService.load(dto, ArticleConstants.LOADTYPE_LOAD_MORE);
+        return apArticleService.load2(dto,ArticleConstants.LOADTYPE_LOAD_MORE,true);
     }
     //加载更多
     @PostMapping("/loadmore")

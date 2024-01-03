@@ -18,7 +18,6 @@ public interface IWemediaClient {
     @PostMapping("/api/v1/wm_user/save")
     ResponseResult save(@RequestBody WmUser wmUser);
 
-//
-//    @GetMapping("/api/v1/channel/list")
-//    public ResponseResult getChannels();
+    @GetMapping("/api/v1/channel/list")
+    public ResponseResult getChannels();
 }

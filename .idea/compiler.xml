@@ -20,6 +20,7 @@
         <module name="heima-leadnews-user" />
         <module name="heima-leadnews-admin-gateway" />
         <module name="today-leadnews-admin" />
+        <module name="xxljob-demo" />
         <module name="es-init" />
         <module name="heima-leadnews-schedule" />
         <module name="heima-leadnews-utils" />
@@ -76,6 +77,7 @@
       <module name="today-leadnews-service" options="-parameters" />
       <module name="today-leadnews-test" options="-parameters" />
       <module name="today-leadnews-utils" options="-parameters" />
+      <module name="xxljob-demo" options="-parameters" />
     </option>
   </component>
 </project>

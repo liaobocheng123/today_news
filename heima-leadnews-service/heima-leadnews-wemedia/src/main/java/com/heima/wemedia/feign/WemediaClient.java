@@ -3,7 +3,9 @@ package com.heima.wemedia.feign;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.common.enums.AppHttpCodeEnum;
+import com.heima.model.wemedia.pojos.WmChannel;
 import com.heima.model.wemedia.pojos.WmUser;
+import com.heima.wemedia.service.WmChannelService;
 import com.heima.wemedia.service.WmUserService;
 import com.lbc.apis.wemedia.IWemediaClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class WemediaClient implements IWemediaClient {
     @Autowired
     private WmUserService wmUserService;
+    @Autowired
+    private WmChannelService wmChannelService;
 
     @Override
     @GetMapping("/api/v1/user/findByName/{name}")
@@ -27,5 +31,11 @@ public class WemediaClient implements IWemediaClient {
     public ResponseResult save(WmUser wmUser) {
         wmUserService.save(wmUser);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    @Override
+    @GetMapping("/api/v1/channel/list")
+    public ResponseResult getChannels() {
+        return wmChannelService.findAll();
     }
 }
