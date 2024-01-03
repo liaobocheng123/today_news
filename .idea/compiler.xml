@@ -13,6 +13,7 @@
         <module name="heima-leadnews-wemedia-gateway" />
         <module name="tess4j-demo" />
         <module name="heima-leadnews-wemedia" />
+        <module name="heima-leadnews-behavior" />
         <module name="kafka-demo" />
         <module name="heima-leadnews-feign-api" />
         <module name="heima-leadnews-article" />
@@ -51,6 +52,7 @@
       <module name="heima-leadnews-app-gateway" options="-parameters" />
       <module name="heima-leadnews-article" options="-parameters" />
       <module name="heima-leadnews-basic" options="-parameters" />
+      <module name="heima-leadnews-behavior" options="-parameters" />
       <module name="heima-leadnews-common" options="-parameters" />
       <module name="heima-leadnews-feign-api" options="-parameters" />
       <module name="heima-leadnews-gateway" options="-parameters" />
