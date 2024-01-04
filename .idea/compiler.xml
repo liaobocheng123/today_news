@@ -34,6 +34,7 @@
     <bytecodeTargetLevel>
       <module name="heima-leadnews-apis" target="1.8" />
       <module name="leadnews-basic" target="1.8" />
+      <module name="today-leadnews" target="1.8" />
       <module name="today-leadnews-feign-api" target="1.8" />
       <module name="today-leadnews-gateway" target="1.8" />
       <module name="today-leadnews-model" target="1.8" />
@@ -71,6 +72,7 @@
       <module name="minio-demo" options="-parameters" />
       <module name="mongo-demo" options="-parameters" />
       <module name="tess4j-demo" options="-parameters" />
+      <module name="today-leadnews" options="-parameters" />
       <module name="today-leadnews-admin" options="-parameters" />
       <module name="today-leadnews-gateway" options="-parameters" />
       <module name="today-leadnews-model" options="-parameters" />

@@ -10,9 +10,9 @@ public class LikesBehaviorDto {
     Long articleId;
     /**
      * 喜欢内容类型
-     * 0文章
-     * 1动态
-     * 2评论
+     * 0 文章
+     * 1 动态
+     * 2 评论
      */
     Short type;
 

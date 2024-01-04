@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.kafka.sample;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
