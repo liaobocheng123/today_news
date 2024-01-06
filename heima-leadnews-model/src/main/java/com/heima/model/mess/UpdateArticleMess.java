@@ -1,5 +1,7 @@
 package com.heima.model.mess;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 @Data
@@ -12,6 +14,7 @@ public class UpdateArticleMess {
     /**
      * 文章ID
      */
+    @JsonSerialize(using= ToStringSerializer.class)
     private Long articleId;
     /**
      * 修改数据的增量，可为正负

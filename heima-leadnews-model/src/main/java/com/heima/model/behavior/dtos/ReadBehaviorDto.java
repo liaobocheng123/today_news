@@ -1,11 +1,14 @@
 package com.heima.model.behavior.dtos;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 @Data
 public class ReadBehaviorDto {
 
     // 文章、动态、评论等ID
+    @JsonSerialize(using= ToStringSerializer.class)
     Long articleId;
 
     /**

@@ -1,5 +1,7 @@
 package com.heima.model.schedule.dtos;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Builder;
 import lombok.Data;
 import java.io.Serializable;
@@ -9,6 +11,7 @@ public class Task implements Serializable {
     /**
      * 任务id
      */
+    @JsonSerialize(using= ToStringSerializer.class)
     private Long taskId;
     /**
      * 类型

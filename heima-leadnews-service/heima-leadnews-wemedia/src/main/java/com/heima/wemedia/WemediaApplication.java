@@ -16,7 +16,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.heima.wemedia.mapper")
-@MapperScan("com.heima.admin.mapper")
 @EnableFeignClients(basePackages = "com.lbc.apis")
 @EnableScheduling
 @EnableAsync

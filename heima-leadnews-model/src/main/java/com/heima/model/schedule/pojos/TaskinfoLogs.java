@@ -1,6 +1,8 @@
 package com.heima.model.schedule.pojos;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,6 +25,7 @@ public class TaskinfoLogs implements Serializable {
      * 任务id
      */
     @TableId(type = IdType.ID_WORKER)
+    @JsonSerialize(using= ToStringSerializer.class)
     private Long taskId;
 
     /**

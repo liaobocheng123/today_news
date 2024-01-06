@@ -22,6 +22,7 @@
         <module name="today-leadnews-admin" />
         <module name="xxljob-demo" />
         <module name="es-init" />
+        <module name="today-leadnews-comment" />
         <module name="heima-leadnews-schedule" />
         <module name="heima-leadnews-utils" />
         <module name="heima-leadnews-app-gateway" />
@@ -33,6 +34,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="heima-leadnews-apis" target="1.8" />
+      <module name="heima-leadnews-comment" target="1.8" />
       <module name="leadnews-basic" target="1.8" />
       <module name="today-leadnews" target="1.8" />
       <module name="today-leadnews-feign-api" target="1.8" />
@@ -55,6 +57,7 @@
       <module name="heima-leadnews-article" options="-parameters" />
       <module name="heima-leadnews-basic" options="-parameters" />
       <module name="heima-leadnews-behavior" options="-parameters" />
+      <module name="heima-leadnews-comment" options="-parameters" />
       <module name="heima-leadnews-common" options="-parameters" />
       <module name="heima-leadnews-feign-api" options="-parameters" />
       <module name="heima-leadnews-gateway" options="-parameters" />
@@ -74,6 +77,7 @@
       <module name="tess4j-demo" options="-parameters" />
       <module name="today-leadnews" options="-parameters" />
       <module name="today-leadnews-admin" options="-parameters" />
+      <module name="today-leadnews-comment" options="-parameters" />
       <module name="today-leadnews-gateway" options="-parameters" />
       <module name="today-leadnews-model" options="-parameters" />
       <module name="today-leadnews-service" options="-parameters" />

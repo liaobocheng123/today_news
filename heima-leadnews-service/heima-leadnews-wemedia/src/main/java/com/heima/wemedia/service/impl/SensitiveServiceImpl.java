@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.heima.model.wemedia.pojos.WmSensitive;
 import com.heima.wemedia.mapper.SensitiveMapper;
 import com.heima.wemedia.service.SensitiveService;
 import com.heima.model.admin.dtos.SensitiveDTO;
@@ -16,9 +17,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
-public class SensitiveServiceImpl extends ServiceImpl<SensitiveMapper,AdSensitive> implements SensitiveService {
+public class SensitiveServiceImpl extends ServiceImpl<SensitiveMapper, AdSensitive> implements SensitiveService {
 
     @Override
     public ResponseResult list(SensitiveDTO dto) {
@@ -46,7 +48,7 @@ public class SensitiveServiceImpl extends ServiceImpl<SensitiveMapper,AdSensitiv
         if (count > 0) { // 已存在
             return ResponseResult.errorResult(AppHttpCodeEnum.DATA_EXIST,"敏感词已存在");
         }
-        adSensitive.setCreateTime(LocalDateTime.now());
+        adSensitive.setCreateTime(new Date());
         save(adSensitive);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
