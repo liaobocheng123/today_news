@@ -1,0 +1,11 @@
+server:
+  port: 9006
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+  application:
+    name: leadnews-comment
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.65.132:8848

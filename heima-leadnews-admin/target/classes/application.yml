@@ -1,0 +1,51 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: leadnews-admin
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.65.130:3306/leadnews_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&useSSL=false
+    username: root
+    password: abc123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.65.132:8848
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
+  kafka:
+    bootstrap-servers: 192.168.65.131:9092
+    consumer:
+      group-id: ${spring.application.name}-kafka-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+mybatis-plus:
+  # 设置Mapper接口所对应的XML文件位置，如果你在Mapper接口中有自定义方法，需要进行该配置
+  mapper-locations: classpath*:mapper/*.xml
+  # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
+  type-aliases-package: com.heima.model.admin.pojos
+
+#服务器需要开8080和9999端口
+xxljob:
+  admin:
+    addresses: http://192.168.65.130:8080/xxl-job-admin
+  executor:
+    appname: leadnews-admin-executor
+    port: 9999
+  
+
+#图片访问ip
+fdfs.url: http://192.168.65.131/
+
+#取消对elastsearch的健康检查
+management:
+  health:
+    elasticsearch:
+      enabled: false
+#自定义elasticsearch连接配置
+elasticsearch:
+  host: 192.168.65.131
+  port: 9200
