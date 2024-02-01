@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.heima</groupId>
-    <artifactId>heima-leadnews</artifactId>
+    <artifactId>leadnews-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <!--启动项目需要启动
@@ -17,22 +17,21 @@
     xxl-job服务端调度中心(Java -jar xxl-job-admin-2.2.0-SNAPSHOT或者运行项目)、
     -->
     <modules>
-        <module>heima-leadnews-common</module>
-        <module>heima-leadnews-utils</module>
-        <module>heima-leadnews-apis</module>
-        <module>heima-leadnews-model</module>
-        <module>heima-leadnews-admin</module>
-        <module>heima-leadnews-admin-gateway</module>
-        <module>heima-leadnews-user</module>
-        <module>heima-leadnews-wemedia</module>
-        <module>heima-leadnews-article</module>
-        <module>heima-leadnews-seata</module>
-        <module>heima-leadnews-wemedia-gateway</module>
-        <module>mysql-canal</module>
-        <module>heima-leadnews-app-gateway</module>
-        <module>heima-leadnews-behavior</module>
-        <module>heima-leadnews-comment</module>
-        <module>heima-leadnews-search</module>
+        <module>leadnews-common</module>
+        <module>leadnews-utils</module>
+        <module>leadnews-apis</module>
+        <module>leadnews-model</module>
+        <module>leadnews-admin</module>
+        <module>leadnews-admin-gateway</module>
+        <module>leadnews-user</module>
+        <module>leadnews-wemedia</module>
+        <module>leadnews-article</module>
+        <module>leadnews-seata</module>
+        <module>leadnews-wemedia-gateway</module>
+        <module>leadnews-app-gateway</module>
+        <module>leadnews-behavior</module>
+        <module>leadnews-comment</module>
+        <module>leadnews-search</module>
             </modules>
 
     <!-- 继承Spring boot工程 -->
@@ -104,22 +103,22 @@
         <dependencies>
             <!--内部依赖工程-->
             <dependency>
-                <artifactId>heima-leadnews-apis</artifactId>
+                <artifactId>leadnews-apis</artifactId>
                 <groupId>com.heima</groupId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <artifactId>heima-leadnews-common</artifactId>
+                <artifactId>leadnews-common</artifactId>
                 <groupId>com.heima</groupId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <artifactId>heima-leadnews-model</artifactId>
+                <artifactId>leadnews-model</artifactId>
                 <groupId>com.heima</groupId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <artifactId>heima-leadnews-utils</artifactId>
+                <artifactId>leadnews-utils</artifactId>
                 <groupId>com.heima</groupId>
                 <version>${project.version}</version>
             </dependency>

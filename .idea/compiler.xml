@@ -7,39 +7,44 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="heima-leadnews-wemedia-gateway" />
-        <module name="heima-leadnews-apis" />
-        <module name="heima-leadnews-behavior" />
-        <module name="heima-leadnews-wemedia" />
-        <module name="heima-leadnews-admin-gateway" />
-        <module name="heima-leadnews-user" />
-        <module name="heima-leadnews-article" />
-        <module name="heima-leadnews-admin" />
-        <module name="heima-leadnews-comment" />
-        <module name="mysql-canal" />
-        <module name="heima-leadnews-utils" />
-        <module name="heima-leadnews-app-gateway" />
-        <module name="heima-leadnews-search" />
-        <module name="heima-leadnews-common" />
-        <module name="heima-leadnews-model" />
-        <module name="heima-leadnews-seata" />
+        <module name="leadnews-common" />
+        <module name="leadnews-seata" />
+        <module name="leadnews-search" />
+        <module name="leadnews-model" />
+        <module name="leadnews-apis" />
+        <module name="leadnews-article" />
+        <module name="leadnews-app-gateway" />
+        <module name="leadnews-admin" />
+        <module name="leadnews-user" />
+        <module name="leadnews-behavior" />
+        <module name="leadnews-utils" />
+        <module name="leadnews-wemedia-gateway" />
+        <module name="leadnews-admin-gateway" />
+        <module name="leadnews-wemedia" />
+        <module name="leadnews-comment" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="heima-leadnews-crawler" target="1.8" />
-      <module name="heima-leadnews-eureka" target="1.8" />
-      <module name="heima-leadnews-fescar" target="1.8" />
-      <module name="heima-leadnews-gateway" target="1.8" />
-      <module name="heima-leadnews-images" target="1.8" />
-      <module name="heima-leadnews-login" target="1.8" />
-      <module name="heima-leadnews-media" target="1.8" />
-      <module name="heima-leadnews-migration" target="1.8" />
-      <module name="leadnews-admin" target="1.8" />
-      <module name="service-mycat" target="1.8" />
+    <bytecodeTargetLevel target="17">
+      <module name="heima-leadnews" target="1.8" />
+      <module name="heima-leadnews-admin" target="1.8" />
+      <module name="heima-leadnews-admin-gateway" target="1.8" />
+      <module name="heima-leadnews-apis" target="1.8" />
+      <module name="heima-leadnews-app-gateway" target="1.8" />
+      <module name="heima-leadnews-article" target="1.8" />
+      <module name="heima-leadnews-behavior" target="1.8" />
+      <module name="heima-leadnews-comment" target="1.8" />
+      <module name="heima-leadnews-common" target="1.8" />
+      <module name="heima-leadnews-model" target="1.8" />
+      <module name="heima-leadnews-search" target="1.8" />
+      <module name="heima-leadnews-seata" target="1.8" />
+      <module name="heima-leadnews-user" target="1.8" />
+      <module name="heima-leadnews-utils" target="1.8" />
+      <module name="heima-leadnews-wemedia" target="1.8" />
+      <module name="heima-leadnews-wemedia-gateway" target="1.8" />
+      <module name="mysql-canal" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="heima-leadnews" options="-parameters" />
       <module name="heima-leadnews-admin" options="-parameters" />
@@ -50,14 +55,6 @@
       <module name="heima-leadnews-behavior" options="-parameters" />
       <module name="heima-leadnews-comment" options="-parameters" />
       <module name="heima-leadnews-common" options="-parameters" />
-      <module name="heima-leadnews-crawler" options="-parameters" />
-      <module name="heima-leadnews-eureka" options="" />
-      <module name="heima-leadnews-fescar" options="" />
-      <module name="heima-leadnews-gateway" options="" />
-      <module name="heima-leadnews-images" options="" />
-      <module name="heima-leadnews-login" options="" />
-      <module name="heima-leadnews-media" options="" />
-      <module name="heima-leadnews-migration" options="" />
       <module name="heima-leadnews-model" options="-parameters" />
       <module name="heima-leadnews-search" options="-parameters" />
       <module name="heima-leadnews-seata" options="-parameters" />
@@ -65,9 +62,23 @@
       <module name="heima-leadnews-utils" options="-parameters" />
       <module name="heima-leadnews-wemedia" options="-parameters" />
       <module name="heima-leadnews-wemedia-gateway" options="-parameters" />
-      <module name="leadnews-admin" options="" />
+      <module name="leadnews-admin" options="-parameters" />
+      <module name="leadnews-admin-gateway" options="-parameters" />
+      <module name="leadnews-apis" options="-parameters" />
+      <module name="leadnews-app-gateway" options="-parameters" />
+      <module name="leadnews-article" options="-parameters" />
+      <module name="leadnews-behavior" options="-parameters" />
+      <module name="leadnews-comment" options="-parameters" />
+      <module name="leadnews-common" options="-parameters" />
+      <module name="leadnews-model" options="-parameters" />
+      <module name="leadnews-parent" options="-parameters" />
+      <module name="leadnews-search" options="-parameters" />
+      <module name="leadnews-seata" options="-parameters" />
+      <module name="leadnews-user" options="-parameters" />
+      <module name="leadnews-utils" options="-parameters" />
+      <module name="leadnews-wemedia" options="-parameters" />
+      <module name="leadnews-wemedia-gateway" options="-parameters" />
       <module name="mysql-canal" options="-parameters" />
-      <module name="service-mycat" options="" />
     </option>
   </component>
 </project>

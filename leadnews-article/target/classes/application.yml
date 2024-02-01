@@ -1,0 +1,47 @@
+server:
+  port: 9003
+spring:
+  autoconfigure:
+    #esSearch学习时加入，忽略本模块自动装配数据库了，一是因为加入了seata会有代理数据库连接，二是为了test中的es同步数据测试ArticleEsTest.testImportAll能够进行
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+  application:
+    name: leadnews-article
+  kafka:
+    bootstrap-servers: 192.168.65.131:9092
+    consumer:
+      group-id: ${spring.application.name}-kafka-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.65.132:8848
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.65.130:3306/leadnews_article?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&useSSL=false
+    username: root
+    password: abc123456
+# 设置Mapper接口所对应的XML文件位置，如果你在Mapper接口中有自定义方法，需要进行该配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
+  type-aliases-package: com.lbc.model.article.pojos
+  global-config:
+    datacenter-id: 1
+    workerId: 1
+    
+#fastdfs图片访问ip
+fdfs.url: http://192.168.65.131/
+
+#取消对elastsearch的健康检查
+management:
+  health:
+    elasticsearch:
+      enabled: false
+#自定义elasticsearch连接配置
+elasticsearch:
+  host: 192.168.65.131
+  port: 9200

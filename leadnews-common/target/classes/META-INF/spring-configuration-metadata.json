@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "name": "aliyun",
+      "type": "com.lbc.common.aliyun.GreenImageScan",
+      "sourceType": "com.lbc.common.aliyun.GreenImageScan"
+    },
+    {
+      "name": "aliyun",
+      "type": "com.lbc.common.aliyun.GreeTextScan",
+      "sourceType": "com.lbc.common.aliyun.GreeTextScan"
+    },
+    {
+      "name": "mongo",
+      "type": "com.lbc.common.mongo.MongoDBconfigure",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "spring.redis",
+      "type": "com.lbc.common.redis.RedisConfiguration",
+      "sourceType": "com.lbc.common.redis.RedisConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.aliyun.GreenImageScan"
+    },
+    {
+      "name": "aliyun.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.aliyun.GreeTextScan"
+    },
+    {
+      "name": "aliyun.scenes",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.aliyun.GreenImageScan"
+    },
+    {
+      "name": "aliyun.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.aliyun.GreenImageScan"
+    },
+    {
+      "name": "aliyun.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.aliyun.GreeTextScan"
+    },
+    {
+      "name": "mongo.authentication-database",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "mongo.dbname",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "mongo.host",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "mongo.password",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "mongo.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    },
+    {
+      "name": "mongo.username",
+      "type": "java.lang.String",
+      "sourceType": "com.lbc.common.mongo.MongoDBconfigure"
+    }
+  ],
+  "hints": []
+}
